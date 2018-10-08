@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "gedeon",
-    "description": "This project is really great.",
+    "description": "This app contains all songs from ici-santiago",
     "slug": "gedeon",
     "privacy": "public",
     "sdkVersion": "30.0.0",
