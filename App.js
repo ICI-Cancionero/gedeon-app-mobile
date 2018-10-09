@@ -1,25 +1,61 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, SectionList } from 'react-native';
+import { StyleSheet, Text, View, SectionList, Button } from 'react-native';
+import songsDB from './songs.json';
 
 export default class App extends React.Component {
+  getSongsTitlesFromInitial (initial) {
+    return songsDB.songs.filter((song) => {
+      return song.title.charAt(0) == initial
+    })
+  }
+
+  getSongsSection () {
+    let initials = songsDB.songs.map((song) => {
+      return song.title.charAt(0);
+    });
+    let uniqueInitials = [...new Set(initials)];
+    return uniqueInitials.map((initial) => {
+      return {
+        initial: initial,
+        data: this.getSongsTitlesFromInitial(initial)
+      }
+    });
+  }
+
   render() {
     return (
-      <SectionListBasics />
+      <SongsList songsSection={this.getSongsSection()} />
     );
   }
 }
 
-class SectionListBasics extends React.Component {
+class SongsList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  renderItem ({item}) {
+    return (
+      <View style={{flexDirection: 'row'}}>
+        <Text style={styles.title}>{item.id}. {item.title}</Text>
+        <Button style={{flex: 1}} title="Ver Canción >"></Button>
+      </View>
+    );
+  }
+
+  renderSectionHeader ({section}) {
+    return (
+      <Text style={styles.sectionHeader}>{section.initial}</Text>
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <SectionList
-          sections={[
-            {title: 'D', data: ['Devin']},
-            {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          sections={this.props.songsSection}
+          renderItem={this.renderItem}
+          renderSectionHeader={this.renderSectionHeader}
           keyExtractor={(item, index) => index}
         />
       </View>
@@ -41,9 +77,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: 'rgba(247,247,247,1.0)',
   },
-  item: {
+  title: {
     padding: 10,
-    fontSize: 18,
-    height: 44,
+    fontSize: 14,
+    flexWrap: 'wrap',
+    flex: 1,
+    fontWeight: 'bold'
   },
+  content: {
+    padding: 10,
+    fontSize: 12,
+    flexWrap: 'wrap',
+    flex: 1 
+  }
 })
