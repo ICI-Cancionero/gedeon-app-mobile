@@ -29,17 +29,43 @@ export default class App extends React.Component {
   }
 }
 
+class SongItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayContent: false
+    };
+    this.toggleContent = this.toggleContent.bind(this);
+  }
+
+  toggleContent() {
+    this.setState(previousState => {
+      return { displayContent: !previousState.displayContent}
+    })
+  }
+
+  render() {
+    return (
+      <View>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.title}>{this.props.song.id}. {this.props.song.title}</Text>
+          <Button style={{flex: 1}} title="Ver Canción >" onPress={this.toggleContent} />
+        </View>
+        {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : ''}
+      </View>
+    );
+  }
+}
+
 class SongsList extends React.Component {
   constructor(props) {
     super(props);
+    this.renderItem = this.renderItem.bind(this);
   }
-  
+
   renderItem ({item}) {
     return (
-      <View style={{flexDirection: 'row'}}>
-        <Text style={styles.title}>{item.id}. {item.title}</Text>
-        <Button style={{flex: 1}} title="Ver Canción >"></Button>
-      </View>
+      <SongItem song={item}></SongItem>
     );
   }
 
