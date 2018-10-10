@@ -45,11 +45,12 @@ class SongItem extends React.Component {
   }
 
   render() {
+    let displayText = this.state.displayContent ? 'Ocultar canción' : 'Ver canción';
     return (
-      <View>
+      <View style={styles.sectionItem}>
         <View style={{flexDirection: 'row'}}>
           <Text style={styles.title}>{this.props.song.id}. {this.props.song.title}</Text>
-          <Button style={{flex: 1}} title="Ver Canción >" onPress={this.toggleContent} />
+          <Button style={{flex: 1}} title={displayText} onPress={this.toggleContent} />
         </View>
         {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : ''}
       </View>
@@ -94,6 +95,9 @@ const styles = StyleSheet.create({
    flex: 1,
    paddingTop: 50
   },
+  sectionItem: {
+    paddingTop: 20
+  },
   sectionHeader: {
     paddingTop: 2,
     paddingLeft: 10,
@@ -104,15 +108,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(247,247,247,1.0)',
   },
   title: {
-    padding: 10,
-    fontSize: 14,
+    fontSize: 16,
+    paddingLeft: 10, 
     flexWrap: 'wrap',
     flex: 1,
     fontWeight: 'bold'
   },
   content: {
-    padding: 10,
-    fontSize: 12,
+    padding: 30,
+    fontSize: 16,
     flexWrap: 'wrap',
     flex: 1 
   }
