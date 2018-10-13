@@ -1,16 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, SectionList, Button } from 'react-native';
-import songsDB from './songs.json';
+import { StyleSheet, Text, View, SectionList, Button, ActivityIndicator } from 'react-native';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true, songsDB: []};
+    this.getSongsTitlesFromInitial = this.getSongsTitlesFromInitial.bind(this);
+    this.getSongsSection = this.getSongsSection.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
   getSongsTitlesFromInitial (initial) {
-    return songsDB.songs.filter((song) => {
+    return this.state.songsDB.filter((song) => {
       return song.title.charAt(0) == initial
     })
   }
 
   getSongsSection () {
-    let initials = songsDB.songs.map((song) => {
+    let initials = this.state.songsDB.map((song) => {
       return song.title.charAt(0);
     });
     let uniqueInitials = [...new Set(initials)];
@@ -22,10 +28,40 @@ export default class App extends React.Component {
     });
   }
 
+  async fetchData() {
+    let songs = [];
+    try {
+      let response = await fetch(
+        'https://gedeon-app-api.herokuapp.com/songs'
+      );
+      songs = await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+    if (songs.length > 0) {
+      this.setState({
+        isLoading: false,
+        songsDB: songs
+      });
+    }
+  }
+
+  componentDidMount(){
+    this.fetchData().done();
+  }
+
   render() {
-    return (
-      <SongsList songsSection={this.getSongsSection()} />
-    );
+    if (this.state.isLoading) {
+      return(
+        <View style={{flex: 1, padding: 40}}>
+          <ActivityIndicator/>
+        </View>
+      );
+    } else {
+      return (
+        <SongsList songsSection={this.getSongsSection()} />
+      );
+    }
   }
 }
 
@@ -49,7 +85,7 @@ class SongItem extends React.Component {
     return (
       <View style={styles.sectionItem}>
         <View style={{flexDirection: 'row'}}>
-          <Text style={styles.title}>{this.props.song.id}. {this.props.song.title}</Text>
+          <Text style={styles.title}>{this.props.song.position}. {this.props.song.title}</Text>
           <Button style={{flex: 1}} title={displayText} onPress={this.toggleContent} />
         </View>
         {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : ''}
