@@ -19,7 +19,7 @@ export default class App extends React.Component {
     let initials = this.state.songsDB.map((song) => {
       return song.title.charAt(0);
     });
-    let uniqueInitials = [...new Set(initials)];
+    let uniqueInitials = [...new Set(initials)].sort();
     return uniqueInitials.map((initial) => {
       return {
         initial: initial,
@@ -85,7 +85,7 @@ class SongItem extends React.Component {
     return (
       <View style={styles.sectionItem}>
         <View style={{flexDirection: 'row'}}>
-          <Text style={styles.title}>{this.props.song.position}. {this.props.song.title}</Text>
+          <Text style={styles.title}>{this.props.song.title}</Text>
           <Button style={{flex: 1}} title={displayText} onPress={this.toggleContent} />
         </View>
         {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : ''}
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    paddingLeft: 10, 
+    paddingLeft: 20, 
     flexWrap: 'wrap',
     flex: 1,
     fontWeight: 'bold'
