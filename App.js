@@ -88,7 +88,7 @@ class SongItem extends React.Component {
           <Text style={styles.title}>{this.props.song.title}</Text>
           <Button style={{flex: 1}} title={displayText} onPress={this.toggleContent} />
         </View>
-        {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : ''}
+        {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : null}
       </View>
     );
   }
@@ -102,7 +102,7 @@ class SongsList extends React.Component {
 
   renderItem ({item}) {
     return (
-      <SongItem song={item}></SongItem>
+      <SongItem song={item}/>
     );
   }
 
