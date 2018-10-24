@@ -32,7 +32,7 @@ export default class App extends React.Component {
     let songs = [];
     try {
       let response = await fetch(
-        'https://gedeon-app-api.herokuapp.com/songs'
+        'https://gedeon-app-rails.herokuapp.com/api/v1/songs'
       );
       songs = await response.json();
     } catch (error) {
