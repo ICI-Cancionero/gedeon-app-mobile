@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, SectionList, Button, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
+import SongsList from './components/SongsList';
+import { styles } from './components/Styles';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -63,97 +65,4 @@ export default class App extends React.Component {
       );
     }
   }
-}
-
-class SongItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayContent: false
-    };
-    this.toggleContent = this.toggleContent.bind(this);
-  }
-
-  toggleContent() {
-    this.setState(previousState => {
-      return { displayContent: !previousState.displayContent}
-    })
-  }
-
-  render() {
-    let displayText = this.state.displayContent ? 'Ocultar canción' : 'Ver canción';
-    return (
-      <View style={styles.sectionItem}>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={styles.title}>{this.props.song.title}</Text>
-          <Button style={{flex: 1}} title={displayText} onPress={this.toggleContent} />
-        </View>
-        {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : null}
-      </View>
-    );
-  }
-}
-
-class SongsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.renderItem = this.renderItem.bind(this);
-  }
-
-  renderItem ({item}) {
-    return (
-      <SongItem song={item}/>
-    );
-  }
-
-  renderSectionHeader ({section}) {
-    return (
-      <Text style={styles.sectionHeader}>{section.initial}</Text>
-    );
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <SectionList
-          sections={this.props.songsSection}
-          renderItem={this.renderItem}
-          renderSectionHeader={this.renderSectionHeader}
-          keyExtractor={(item, index) => index}
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 50
-  },
-  sectionItem: {
-    paddingTop: 20
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  title: {
-    fontSize: 16,
-    paddingLeft: 20, 
-    flexWrap: 'wrap',
-    flex: 1,
-    fontWeight: 'bold'
-  },
-  content: {
-    padding: 30,
-    fontSize: 16,
-    flexWrap: 'wrap',
-    flex: 1 
-  }
-})
+};
