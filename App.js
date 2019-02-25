@@ -2,11 +2,14 @@ import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import SongsList from './components/SongsList';
 import { styles } from './components/Styles';
+import { Font } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
+//import { Container, Content, Header, Footer, FooterTab, Button, Text } from 'native-base';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, songsDB: []};
+    this.state = { isLoading: true, songsDB: [], component: 0};
     this.getSongsTitlesFromInitial = this.getSongsTitlesFromInitial.bind(this);
     this.getSongsSection = this.getSongsSection.bind(this);
     this.fetchData = this.fetchData.bind(this);
@@ -49,6 +52,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
+    Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
     this.fetchData().done();
   }
 
