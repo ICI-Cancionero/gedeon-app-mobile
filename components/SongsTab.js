@@ -5,19 +5,24 @@ import SongsList from './SongsList';
 export default class SongsTab extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, songsDB: [], component: 0};
+    this.state = {
+      isLoading: true,
+      songsDB: [],
+      filteredSongs: []
+    };
     this.getSongsTitlesFromInitial = this.getSongsTitlesFromInitial.bind(this);
     this.getSongsSection = this.getSongsSection.bind(this);
     this.fetchData = this.fetchData.bind(this);
+    this.filterSongs = this.filterSongs.bind(this);
   }
   getSongsTitlesFromInitial (initial) {
-    return this.state.songsDB.filter((song) => {
+    return this.state.filteredSongs.filter((song) => {
       return song.title.charAt(0) == initial
     })
   }
 
   getSongsSection () {
-    let initials = this.state.songsDB.map((song) => {
+    let initials = this.state.filteredSongs.map((song) => {
       return song.title.charAt(0);
     });
     let uniqueInitials = [...new Set(initials)].sort();
@@ -42,8 +47,21 @@ export default class SongsTab extends React.Component {
     if (songs.length > 0) {
       this.setState({
         isLoading: false,
-        songsDB: songs
+        songsDB: songs,
+        filteredSongs: songs
       });
+    }
+  }
+
+  filterSongs (text) {
+    if (text !== '') {
+      this.setState({
+        filteredSongs: this.state.filteredSongs.filter((song) => {
+          return (song.title.toLowerCase().indexOf(text.toLowerCase()) > -1 || song.content.toLowerCase().indexOf(text.toLowerCase()) > -1);
+        })
+      });
+    } else {
+      this.setState({filteredSongs: this.state.songsDB});
     }
   }
 
@@ -60,7 +78,7 @@ export default class SongsTab extends React.Component {
       );
     } else {
       return (
-        <SongsList songsSection={this.getSongsSection()} />
+        <SongsList songsSection={this.getSongsSection()} onChangeText={this.filterSongs} />
       );
     }
   }
