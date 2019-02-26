@@ -1,12 +1,17 @@
 import React from 'react';
 import SongsTab from './components/SongsTab';
-import { Font } from 'expo';
+import { Font, AppLoading } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import { Body, Container, Content, Header, Tab, Tabs, Text, Title } from 'native-base';
 
 export default class App extends React.Component {
-  componentDidMount () {
-    Font.loadAsync({
+
+  state = {
+    isReady: false
+  }
+
+  async _loadFonts() {
+    await Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
       ...Ionicons.font,
@@ -14,6 +19,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (!this.state.isReady) return (
+      <AppLoading
+        startAsync={this._loadFonts}
+        onFinish={() => this.setState({isReady: true})}
+        onError={console.warn}
+      />
+    )
+
     return(
       <Container>
         <Header hasTabs>
