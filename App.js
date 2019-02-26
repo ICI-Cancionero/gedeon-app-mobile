@@ -2,7 +2,7 @@ import React from 'react';
 import SongsTab from './components/SongsTab';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
-import { Body, Container, Content, Header, Tab, Tabs, TabHeading, Text, Title } from 'native-base';
+import { Body, Container, Content, Header, Tab, Tabs, Text, Title } from 'native-base';
 
 export default class App extends React.Component {
   componentDidMount () {
@@ -22,10 +22,10 @@ export default class App extends React.Component {
           </Body>
         </Header>
         <Tabs>
-          <Tab heading={<TabHeading><Text>Canciones</Text></TabHeading>}>
+          <Tab heading="Canciones">
             <SongsTab />
           </Tab>
-          <Tab heading={<TabHeading><Text>Listas</Text></TabHeading>}>
+          <Tab heading="Listas">
           </Tab>
         </Tabs>
       </Container>
