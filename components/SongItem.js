@@ -24,7 +24,7 @@ export default class SongItem extends React.Component {
       <View style={styles.sectionItem}>
         <View style={{flexDirection: 'row'}}>
           <H3 style={styles.title}>{this.props.song.title}</H3>
-          <Button style={styles.button}light onPress={this.toggleContent}><Text>{displayText}</Text></Button>
+          <Button style={styles.button} light onPress={this.toggleContent}><Text>{displayText}</Text></Button>
         </View>
         {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : null}
       </View>

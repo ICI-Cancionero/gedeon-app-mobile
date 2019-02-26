@@ -1,5 +1,6 @@
 import React from 'react';
 import SongsTab from './components/SongsTab';
+import ListsTab from './components/ListsTab';
 import { Font, AppLoading } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import { Body, Container, Content, Header, Tab, Tabs, Text, Title } from 'native-base';
@@ -39,6 +40,7 @@ export default class App extends React.Component {
             <SongsTab />
           </Tab>
           <Tab heading="Listas">
+            <ListsTab />
           </Tab>
         </Tabs>
       </Container>
