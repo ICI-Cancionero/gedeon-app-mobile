@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
+import { Content } from 'native-base';
 import SongsList from './SongsList';
 
 export default class SongsTab extends React.Component {
@@ -54,9 +55,9 @@ export default class SongsTab extends React.Component {
   render() {
     if (this.state.isLoading) {
       return(
-        <View style={{flex: 1, padding: 40}}>
+        <Content style={{flex: 1, padding: 40}}>
           <ActivityIndicator/>
-        </View>
+        </Content>
       );
     } else {
       return (

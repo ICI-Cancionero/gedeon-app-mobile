@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, SectionList } from 'react-native';
+import { Text, SectionList } from 'react-native';
+import { Content } from 'native-base';
 import SongItem from './SongItem';
 import { styles } from './Styles';
 
@@ -23,14 +24,14 @@ export default class SongsList extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <Content style={styles.container}>
         <SectionList
           sections={this.props.songsSection}
           renderItem={this.renderItem}
           renderSectionHeader={this.renderSectionHeader}
           keyExtractor={(item, index) => index}
         />
-      </View>
+      </Content>
     );
   }
 }
