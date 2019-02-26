@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content, Text, List, ListItem, Right, Button } from 'native-base';
+import { Content } from 'native-base';
 import PlaylistItem from './PlaylistItem';
 
 export default class PlayListsList extends React.Component {
@@ -16,7 +16,6 @@ export default class PlayListsList extends React.Component {
     return (
       <Content>
         {this.renderLists()}
-        {/*<Text>{JSON.stringify(this.props.lists)}</Text>*/}
       </Content>
     );
   }
