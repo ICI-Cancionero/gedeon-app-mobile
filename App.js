@@ -2,7 +2,7 @@ import React from 'react';
 import SongsTab from './components/SongsTab';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
-//import { Container, Content, Header, Footer, FooterTab, Button, Text } from 'native-base';
+import { Body, Container, Content, Header, Tab, Tabs, TabHeading, Text, Title } from 'native-base';
 
 export default class App extends React.Component {
   componentDidMount () {
@@ -14,6 +14,21 @@ export default class App extends React.Component {
   }
 
   render() {
-    return(<SongsTab />);
+    return(
+      <Container>
+        <Header hasTabs>
+          <Body>
+            <Title>Cancionero del Reino</Title>
+          </Body>
+        </Header>
+        <Tabs>
+          <Tab heading={<TabHeading><Text>Canciones</Text></TabHeading>}>
+            <SongsTab />
+          </Tab>
+          <Tab heading={<TabHeading><Text>Listas</Text></TabHeading>}>
+          </Tab>
+        </Tabs>
+      </Container>
+    );
   }
 };

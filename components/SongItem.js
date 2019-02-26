@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { View } from 'react-native';
+import { Button, Text } from 'native-base';
 import { styles } from './Styles';
 
 export default class SongItem extends React.Component {
@@ -18,12 +19,12 @@ export default class SongItem extends React.Component {
   }
 
   render() {
-    let displayText = this.state.displayContent ? 'Ocultar canción' : 'Ver canción';
+    let displayText = this.state.displayContent ? 'Ocultar' : 'Ver';
     return (
       <View style={styles.sectionItem}>
         <View style={{flexDirection: 'row'}}>
           <Text style={styles.title}>{this.props.song.title}</Text>
-          <Button style={{flex: 1}} title={displayText} onPress={this.toggleContent} />
+          <Button style={styles.button}light onPress={this.toggleContent}><Text>{displayText}</Text></Button>
         </View>
         {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : null}
       </View>

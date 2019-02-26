@@ -2,8 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   paddingTop: 50
+   flex: 1
+  },
+  button: {
+    margin: 10
   },
   sectionItem: {
     paddingTop: 20
@@ -22,7 +24,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 20, 
     flexWrap: 'wrap',
     flex: 1,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   content: {
     padding: 30,
