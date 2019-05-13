@@ -27,7 +27,13 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.icisantiago.gedeon"
+      "package": "com.icisantiago.gedeon",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_PHONE_STATE",
+        "READ_CONTACTS"
+      ]
     }
   }
 }
