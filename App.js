@@ -4,7 +4,12 @@ import ListsTab from './components/ListsTab';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { Body, Container, Content, Header, Tab, Tabs, Text, Title } from 'native-base';
+import { Body, Container, Content, Header, Tab, Tabs, Text, Title, DefaultTabBar } from 'native-base';
+
+const renderTabBar = (props) => {
+  props.tabStyle = Object.create(props.tabStyle);
+  return <DefaultTabBar {...props} />;
+};
 
 export default class App extends React.Component {
 
@@ -36,7 +41,7 @@ export default class App extends React.Component {
             <Title>Cancionero del Reino</Title>
           </Body>
         </Header>
-        <Tabs>
+        <Tabs renderTabBar={renderTabBar}>
           <Tab heading="Canciones">
             <SongsTab />
           </Tab>
