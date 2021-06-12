@@ -31,7 +31,7 @@ export default class SongsList extends React.Component {
     return (
       <Content style={styles.container}>
         <Item rounded style={{margin: 10}}>
-          <Input placeholder="Buscar cancion" onChangeText={this.handleChangeInput}/>
+          <Input placeholder="Buscar canción" onChangeText={this.handleChangeInput}/>
         </Item>
         <SectionList
           sections={this.props.songsSection}
