@@ -1,7 +1,7 @@
 import React from 'react';
 import SongsTab from './components/SongsTab';
 import ListsTab from './components/ListsTab';
-import { AppLoading } from 'expo';
+import { AppLoading } from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Body, Container, Content, Header, Tab, Tabs, Text, Title } from 'native-base';

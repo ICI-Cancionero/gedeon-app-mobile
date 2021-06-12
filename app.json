@@ -4,7 +4,6 @@
     "description": "This app contains all songs from ici-santiago",
     "slug": "gedeon",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
       "android"
