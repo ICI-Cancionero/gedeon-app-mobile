@@ -3,3 +3,4 @@ node_modules/**/*
 npm-debug.*
 gedeon-mobile.keystore
 .DS_Store
+keystores/*
