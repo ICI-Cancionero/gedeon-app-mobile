@@ -4,14 +4,13 @@
     "description": "This app contains all songs from ici-santiago",
     "slug": "gedeon",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "1.1.2",
+    "version": "1.1.3",
     "orientation": "portrait",
-    "icon": "./assets/icon.jpeg",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -30,7 +29,8 @@
     "android": {
       "package": "com.icisantiago.gedeon",
       "permissions": [],
-      "versionCode": 2
-    }
+      "versionCode": 3
+    },
+    "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile"
   }
 }

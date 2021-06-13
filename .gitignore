@@ -1,3 +1,6 @@
 node_modules/**/*
 .expo/*
 npm-debug.*
+gedeon-mobile.keystore
+.DS_Store
+keystores/*

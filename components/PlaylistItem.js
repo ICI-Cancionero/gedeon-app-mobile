@@ -30,7 +30,7 @@ export default class PlayListItem extends React.Component {
                   section.playlist_items.map((item) => {
                     return (
                       <Content style={{marginBottom: 10}} key={item.id}>
-                        <H3 style={{marginBottom: 10}}>{item.position}. {item.song.title}</H3>
+                        <H3 style={{marginBottom: 10, paddingTop: 5, paddingBottom: 5}}>{item.position}. {item.song.title}</H3>
                         <Text style={{marginBottom: 10}}>{item.song.content}</Text>
                       </Content>
                     );

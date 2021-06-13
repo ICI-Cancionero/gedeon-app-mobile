@@ -8,7 +8,8 @@ export default class SongsTab extends React.Component {
     this.state = {
       isLoading: true,
       songsDB: [],
-      filteredSongs: []
+      filteredSongs: [],
+      searchTerm: ""
     };
     this.getSongsTitlesFromInitial = this.getSongsTitlesFromInitial.bind(this);
     this.getSongsSection = this.getSongsSection.bind(this);
@@ -54,9 +55,11 @@ export default class SongsTab extends React.Component {
   }
 
   filterSongs (text) {
+    this.setState({searchTerm: text});
+
     if (text !== '') {
       this.setState({
-        filteredSongs: this.state.filteredSongs.filter((song) => {
+        filteredSongs: this.state.songsDB.filter((song) => {
           return (song.title.toLowerCase().indexOf(text.toLowerCase()) > -1 || song.content.toLowerCase().indexOf(text.toLowerCase()) > -1);
         })
       });
@@ -78,7 +81,11 @@ export default class SongsTab extends React.Component {
       );
     } else {
       return (
-        <SongsList songsSection={this.getSongsSection()} onChangeText={this.filterSongs} />
+        <SongsList
+          songsSection={this.getSongsSection()}
+          onChangeText={this.filterSongs}
+          searchTerm={this.state.searchTerm}
+        />
       );
     }
   }
