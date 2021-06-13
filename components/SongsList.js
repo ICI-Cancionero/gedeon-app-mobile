@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, SectionList } from 'react-native';
-import { Content, Item, Input } from 'native-base';
+import { Item, Input, View } from 'native-base';
 import SongItem from './SongItem';
 import { styles } from './Styles';
 
@@ -36,7 +36,7 @@ export default class SongsList extends React.Component {
 
   render() {
     return (
-      <Content style={styles.container}>
+      <View style={styles.container}>
         <Item rounded style={{margin: 10}}>
           <Input
             placeholder="Buscar una canción"
@@ -51,7 +51,7 @@ export default class SongsList extends React.Component {
           renderSectionHeader={this.renderSectionHeader}
           keyExtractor={(item, index) => index}
         />
-      </Content>
+      </View>
     );
   }
 }
