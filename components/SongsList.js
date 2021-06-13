@@ -9,6 +9,7 @@ export default class SongsList extends React.Component {
     super(props);
     this.renderItem = this.renderItem.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   renderItem ({item}) {
@@ -27,11 +28,22 @@ export default class SongsList extends React.Component {
     this.props.onChangeText(text);
   }
 
+  handleKeyPress ({ nativeEvent }) {
+    if (nativeEvent.key == 'Backspace') {
+      this.props.onChangeText(this.props.searchTerm.slice(0, -1));
+    }
+  }
+
   render() {
     return (
       <Content style={styles.container}>
         <Item rounded style={{margin: 10}}>
-          <Input placeholder="Buscar canción" onChangeText={this.handleChangeInput}/>
+          <Input
+            placeholder="Buscar una canción"
+            onChangeText={this.handleChangeInput}
+            onKeyPress={this.handleKeyPress}
+            value={this.props.searchTerm}
+          />
         </Item>
         <SectionList
           sections={this.props.songsSection}
