@@ -30,6 +30,7 @@
       "package": "com.icisantiago.gedeon",
       "permissions": [],
       "versionCode": 2
-    }
+    },
+    "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile"
   }
 }
