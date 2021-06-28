@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "gedeon",
-    "description": "This app contains all songs from ici-santiago",
+    "name": "Gedeón",
+    "description": "Esta aplicación contiene el cancionero de la Iglesia ICI Santiago",
     "slug": "gedeon",
     "privacy": "public",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "1.1.3",
+    "version": "1.1.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -29,7 +29,7 @@
     "android": {
       "package": "com.icisantiago.gedeon",
       "permissions": [],
-      "versionCode": 3
+      "versionCode": 4
     },
     "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile"
   }

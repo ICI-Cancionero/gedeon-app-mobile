@@ -20,18 +20,18 @@ export default class PlayListItem extends React.Component {
 
   renderPlaylistContent() {
     return (
-      <Card>
+      <Card style={{borderWidth: 0, margin: 0, marginTop: -1}}>
         {this.props.playlist.playlist_sections.map((section) => {
           return (
-            <CardItem key={section.id}>
-              <Body>
+            <CardItem key={section.id} style={{borderWidth: 0}}>
+              <Body style={{borderWidth: 0}}>
                 <H2 style={{marginBottom: 30, marginTop: 30}}>{section.name}</H2>
                 {
                   section.playlist_items.map((item) => {
                     return (
-                      <Content style={{marginBottom: 10}} key={item.id}>
+                      <Content style={{marginBottom: 0}} key={item.id}>
                         <H3 style={{marginBottom: 10, paddingTop: 5, paddingBottom: 5}}>{item.position}. {item.song.title}</H3>
-                        <Text style={{marginBottom: 10}}>{item.song.content}</Text>
+                        <Text style={{marginBottom: 0}}>{item.song.content}</Text>
                       </Content>
                     );
                   })
