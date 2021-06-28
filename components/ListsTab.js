@@ -1,6 +1,7 @@
 import React from 'react';
 import { Content, Spinner } from 'native-base';
 import PlaylistsList from './PlaylistsList';
+import { colors } from './Styles';
 
 export default class ListsTab extends React.Component {
 
@@ -39,7 +40,7 @@ export default class ListsTab extends React.Component {
     if (this.state.isLoading) {
       return(
         <Content>
-          <Spinner color='blue'/>
+          <Spinner color={colors.blackPurple}/>
         </Content>
       );
     } else {

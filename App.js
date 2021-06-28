@@ -4,7 +4,8 @@ import ListsTab from './components/ListsTab';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { Body, Container, Content, Header, Tab, Tabs, Text, Title, DefaultTabBar } from 'native-base';
+import { Body, Container, Content, Header, Tab, Tabs, Text, Title, DefaultTabBar, TabHeading } from 'native-base';
+import { colors, styles } from './components/Styles';
 
 const renderTabBar = (props) => {
   props.tabStyle = Object.create(props.tabStyle);
@@ -36,16 +37,29 @@ export default class App extends React.Component {
 
     return(
       <Container>
-        <Header hasTabs>
-          <Body>
-            <Title>Cancionero del Reino</Title>
+        <Header hasTabs style={styles.header}>
+          <Body style={{flex: 1}}>
+            <Title style={{color: 'white', alignSelf: 'center'}}>Cancionero del Reino</Title>
           </Body>
         </Header>
-        <Tabs renderTabBar={renderTabBar}>
-          <Tab heading="Canciones">
+        <Tabs
+          renderTabBar={renderTabBar}
+          tabBarUnderlineStyle={styles.tabBarUnderline}
+        >
+          <Tab
+            heading={<TabHeading style={styles.tabHeading}>
+              <Text style={{color: colors.blackPurple}}>Canciones</Text>
+            </TabHeading>}
+            activeTextStyle={styles.activeText}
+          >
             <SongsTab />
           </Tab>
-          <Tab heading="Listas">
+          <Tab
+            heading={<TabHeading style={styles.tabHeading}>
+              <Text style={{color: colors.blackPurple}}>Listas</Text>
+            </TabHeading>}
+            activeTextStyle={styles.activeText}
+          >
             <ListsTab />
           </Tab>
         </Tabs>

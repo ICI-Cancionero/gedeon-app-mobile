@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, SectionList } from 'react-native';
 import { Item, Input, View } from 'native-base';
 import SongItem from './SongItem';
-import { styles } from './Styles';
+import { styles, colors } from './Styles';
 
 export default class SongsList extends React.Component {
   constructor(props) {
@@ -37,12 +37,13 @@ export default class SongsList extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Item rounded style={{margin: 10}}>
+        <Item regular style={{margin: 10, marginLeft: 12}}>
           <Input
             placeholder="Buscar una canción"
             onChangeText={this.handleChangeInput}
             onKeyPress={this.handleKeyPress}
             value={this.props.searchTerm}
+            style={styles.textField}
           />
         </Item>
         <SectionList
