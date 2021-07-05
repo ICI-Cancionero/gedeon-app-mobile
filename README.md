@@ -1,4 +1,4 @@
-# Gedeon
+# ICI Cancionero
 This app contains all songs from ici-santiago
 
 ## Install dependencies

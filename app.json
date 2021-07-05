@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Gedeón",
+    "name": "ICI Cancionero",
     "description": "Esta aplicación contiene el cancionero de la Iglesia ICI Santiago",
-    "slug": "gedeon",
+    "slug": "ici-cancionero",
     "privacy": "public",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "1.1.4",
+    "version": "1.1.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -24,12 +24,12 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.icisantiago.gedeon"
+      "bundleIdentifier": "com.icisantiago.icicancionero"
     },
     "android": {
-      "package": "com.icisantiago.gedeon",
+      "package": "com.icisantiago.icicancionero",
       "permissions": [],
-      "versionCode": 4
+      "versionCode": 6
     },
     "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile"
   }
