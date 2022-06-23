@@ -20,13 +20,14 @@ export default class SongItem extends React.Component {
 
   render() {
     let displayText = this.state.displayContent ? 'Ocultar' : 'Ver';
+    let { song } = this.props;
     return (
       <View style={styles.sectionItem}>
         <View style={{flexDirection: 'row'}}>
-          <H3 style={styles.title}>{this.props.song.title}</H3>
+          <H3 style={styles.title}>{song.position}. {song.title}</H3>
           <Button style={styles.button} light onPress={this.toggleContent}><Text>{displayText}</Text></Button>
         </View>
-        {this.state.displayContent ? <Text style={styles.content}>{this.props.song.content}</Text> : null}
+        {this.state.displayContent ? <Text style={styles.content}>{song.content}</Text> : null}
       </View>
     );
   }

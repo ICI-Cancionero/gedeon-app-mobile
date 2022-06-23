@@ -62,7 +62,11 @@ export default class SongsTab extends React.Component {
     if (text !== '') {
       this.setState({
         filteredSongs: this.state.songsDB.filter((song) => {
-          return (song.title.toLowerCase().indexOf(text.toLowerCase()) > -1 || song.content.toLowerCase().indexOf(text.toLowerCase()) > -1);
+          return (
+            song.position == parseInt(text) ||
+            song.title.toLowerCase().indexOf(text.toLowerCase()) > -1 ||
+            song.content.toLowerCase().indexOf(text.toLowerCase()) > -1
+          );
         })
       });
     } else {
