@@ -8,7 +8,7 @@
       "ios",
       "android"
     ],
-    "version": "1.1.6",
+    "version": "1.1.7",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -29,7 +29,7 @@
     "android": {
       "package": "com.icisantiago.icicancionero",
       "permissions": [],
-      "versionCode": 6
+      "versionCode": 7
     },
     "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile"
   }
