@@ -1,3 +1,4 @@
+import "./ignoreWarnings";
 import React from 'react';
 import SongsTab from './components/SongsTab';
 import ListsTab from './components/ListsTab';
