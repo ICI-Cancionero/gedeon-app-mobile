@@ -20,8 +20,8 @@ export default class App extends React.Component {
 
   async _loadFonts() {
     await Font.loadAsync({
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+      'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+      'Roboto_medium': require('./assets/fonts/Roboto-Medium.ttf'),
       ...Ionicons.font,
     });
   }
