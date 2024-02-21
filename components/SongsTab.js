@@ -42,7 +42,7 @@ export class SongsTab extends React.Component {
     let songs = [];
     try {
       let response = await fetch(
-        'https://gedeon-app-rails.herokuapp.com/api/v1/songs'
+        'https://ici-santiago.holymusic.co/api/v1/songs'
       );
       songs = await response.json();
     } catch (error) {

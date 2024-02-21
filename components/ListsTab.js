@@ -19,7 +19,7 @@ export class ListsTab extends React.Component {
     let lists = [];
     try {
       let response = await fetch(
-        'https://gedeon-app-rails.herokuapp.com/api/v1/playlists'
+        'https://ici-santiago.holymusic.co/api/v1/playlists'
       );
       lists = await response.json();
     } catch (error) {
