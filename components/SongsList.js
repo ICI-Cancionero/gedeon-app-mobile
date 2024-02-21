@@ -1,10 +1,10 @@
-import React from 'react';
-import { Text, SectionList } from 'react-native';
-import { Item, Input, View } from 'native-base';
-import SongItem from './SongItem';
+import React, { PureComponent } from 'react';
+import { Text, SectionList, View, TextInput, SafeAreaView } from 'react-native';
+//import { Item, Input, View } from 'native-base';
+import { SongItem } from './SongItem';
 import { styles, colors } from './Styles';
 
-export default class SongsList extends React.Component {
+export class SongsList extends PureComponent {
   constructor(props) {
     super(props);
     this.renderItem = this.renderItem.bind(this);
@@ -36,22 +36,24 @@ export default class SongsList extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Item regular style={{margin: 10, marginLeft: 12}}>
-          <Input
-            placeholder="Buscar una canción"
-            onChangeText={this.handleChangeInput}
-            onKeyPress={this.handleKeyPress}
-            value={this.props.searchTerm}
-            style={styles.textField}
-          />
-        </Item>
-        <SectionList
-          sections={this.props.songsSection}
-          renderItem={this.renderItem}
-          renderSectionHeader={this.renderSectionHeader}
-          keyExtractor={(item, index) => index}
+      <View style={{height: "92%", marginTop: 10, marginBottom: 50}}>
+        <TextInput
+          placeholder="Buscar una canción"
+          placeholderTextColor="gray"
+          onChangeText={this.handleChangeInput}
+          onKeyPress={this.handleKeyPress}
+          value={this.props.searchTerm}
+          style={styles.textField}
         />
+        <View style={styles.container}>
+          <SectionList
+            sections={this.props.songsSection}
+            renderItem={this.renderItem}
+            renderSectionHeader={this.renderSectionHeader}
+            keyExtractor={(item, index) => item.id }
+            style={{flex: 1}}
+          />
+        </View>
       </View>
     );
   }

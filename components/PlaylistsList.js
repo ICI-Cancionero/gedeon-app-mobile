@@ -1,5 +1,6 @@
 import React from 'react';
-import { Content } from 'native-base';
+// import { Content } from 'native-base';
+import { View } from 'react-native';
 import PlaylistItem from './PlaylistItem';
 
 export default class PlayListsList extends React.Component {
@@ -14,9 +15,9 @@ export default class PlayListsList extends React.Component {
 
   render() {
     return (
-      <Content>
+      <View style={{height: "90%", marginTop: 50, marginBottom: 50}}>
         {this.renderLists()}
-      </Content>
+      </View>
     );
   }
 }

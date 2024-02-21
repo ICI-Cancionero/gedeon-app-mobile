@@ -1,5 +1,6 @@
 import React from 'react';
-import { ListItem, Body, Button, Text, Content, Card, CardItem, H2, H3 } from 'native-base';
+// import { ListItem, Body, Button, Text, Content, Card, CardItem, H2, H3 } from 'native-base';
+import { ScrollView, View, Text, Pressable } from 'react-native';
 import { styles } from './Styles';
 
 export default class PlayListItem extends React.Component {
@@ -20,27 +21,27 @@ export default class PlayListItem extends React.Component {
 
   renderPlaylistContent() {
     return (
-      <Card style={{borderWidth: 0, margin: 0, marginTop: -1}}>
+      <ScrollView style={{borderWidth: 0, margin: 0, marginTop: -1}}>
         {this.props.playlist.playlist_sections.map((section) => {
           return (
-            <CardItem key={section.id} style={{borderWidth: 0}}>
-              <Body style={{borderWidth: 0}}>
-                <H2 style={{marginBottom: 30, marginTop: 30}}>{section.name}</H2>
+            <View key={section.id} style={{borderWidth: 0, margin: 10}}>
+              <View style={{borderWidth: 0}}>
+                <Text style={{marginBottom: 30, marginTop: 30}}>{section.name}</Text>
                 {
                   section.playlist_items.map((item) => {
                     return (
-                      <Content style={{marginBottom: 0}} key={item.id}>
-                        <H3 style={{marginBottom: 10, paddingTop: 5, paddingBottom: 5}}>{item.position}. ({item.song.position}){item.song.title}</H3>
+                      <View style={{marginBottom: 0}} key={item.id}>
+                        <Text style={{marginBottom: 10, paddingTop: 5, paddingBottom: 5}}>{item.position}. ({item.song.position}){item.song.title}</Text>
                         <Text style={{marginBottom: 0}}>{item.song.content}</Text>
-                      </Content>
+                      </View>
                     );
                   })
                 }
-              </Body>
-            </CardItem>
+              </View>
+            </View>
           );
         })}
-      </Card>
+      </ScrollView>
     );
   }
 
@@ -48,15 +49,15 @@ export default class PlayListItem extends React.Component {
     let displayText = this.state.displayContent ? 'Ocultar' : 'Ver';
 
     return (
-      <Content>
-        <ListItem>
-          <Text>{this.props.playlist.name}</Text>
-          <Button style={styles.button} light onPress={this.toggleContent}>
-            <Text>{displayText}</Text>
-          </Button>
-        </ListItem>
+      <View>
+        <View>
+          <Text style={styles.title}>{this.props.playlist.name}</Text>
+          <Pressable style={styles.button} onPress={this.toggleContent}>
+            <Text style={styles.title}>{displayText}</Text>
+          </Pressable>
+        </View>
         {this.state.displayContent ? this.renderPlaylistContent() : null}
-      </Content>
+      </View>
     );
   }
 }

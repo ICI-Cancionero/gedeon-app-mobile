@@ -11,11 +11,21 @@ export const colors = {
 
 export const styles = StyleSheet.create({
   container: {
-   flex: 1,
+    marginTop: 10,
+    flex: 1
   },
   button: {
-    margin: 10,
-    backgroundColor: colors.whiteBlue
+    backgroundColor: colors.grayBlue,
+    borderRadius: 4,
+    padding: 10,
+    alignSelf: 'flex-end',
+    marginBottom: 10
+  },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    color: 'white'
   },
   header: {
     backgroundColor: colors.blackPurple,
@@ -30,8 +40,23 @@ export const styles = StyleSheet.create({
     color: colors.blackPurple
   },
   tabBarUnderline: {
+    backgroundColor: colors.blackPurple,
     borderColor: colors.blackPurple,
-    borderBottomWidth: 4
+    borderBottomWidth: 4,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    paddingTop: 60
+  },
+  tabButton: {
+    backgroundColor: colors.grayBlue,
+    alignItems: 'center',
+    paddingHorizontal: 30
+  },
+  tabButtonActive: {
+    backgroundColor: colors.whiteBlue,
+    alignItems: 'center',
+    paddingHorizontal: 30
   },
   tabHeading: {
     textAlign: 'center',
@@ -50,17 +75,20 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     paddingLeft: 20,
-    flexWrap: 'wrap',
-    flex: 1,
     fontWeight: 'bold',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   content: {
     padding: 30,
-    fontSize: 16,
-    flexWrap: 'wrap',
-    flex: 1
+    fontSize: 16
   },
   textField: {
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20,
+    borderWidth: 2,
+    borderColor: colors.gray,
+    padding: 10
   }
 });

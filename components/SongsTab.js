@@ -1,10 +1,11 @@
 import React from 'react';
-import { Content, Spinner } from 'native-base';
-import SongsList from './SongsList';
+//import { Content, Spinner } from 'native-base';
+import { SongsList } from './SongsList';
 import { colors } from './Styles';
+import { View, Text } from 'react-native';
 
 
-export default class SongsTab extends React.Component {
+export class SongsTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,15 +76,17 @@ export default class SongsTab extends React.Component {
   }
 
   componentDidMount(){
-    this.fetchData().done();
+    this.fetchData();
   }
 
   render() {
     if (this.state.isLoading) {
       return(
-        <Content>
-          <Spinner color={colors.blackPurple}/>
-        </Content>
+        <View>
+          <Text>
+            Loading...
+          </Text>
+        </View>
       );
     } else {
       return (

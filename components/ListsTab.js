@@ -1,9 +1,10 @@
 import React from 'react';
-import { Content, Spinner } from 'native-base';
+// import { Content, Spinner } from 'native-base';
+import { View, Text } from 'react-native';
 import PlaylistsList from './PlaylistsList';
 import { colors } from './Styles';
 
-export default class ListsTab extends React.Component {
+export class ListsTab extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,15 +34,17 @@ export default class ListsTab extends React.Component {
   }
 
   componentDidMount(){
-    this.fetchData().done();
+    this.fetchData();
   }
 
   render() {
     if (this.state.isLoading) {
       return(
-        <Content>
-          <Spinner color={colors.blackPurple}/>
-        </Content>
+        <View>
+          <Text>
+            Loading...
+          </Text>
+        </View>
       );
     } else {
       return (
