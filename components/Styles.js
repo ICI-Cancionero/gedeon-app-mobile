@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export const colors = {
   ligthBlue: '#4fb7e7',
   whiteBlue: '#9BD1E7',
+  white: '#f0f8fc',
   grayBlue: '#5597c9',
   gray: '#F7F7F7',
   blackPurple: '#19005e',
@@ -29,7 +30,17 @@ export const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: colors.blackPurple,
-    textAlign: 'center'
+    textAlign: 'center',
+    alignSelf: 'center',
+    paddingVertical: 40,
+    width: '100%'
+  },
+  headerText: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 21
   },
   sectionItem: {
     paddingTop: 20,
@@ -44,19 +55,37 @@ export const styles = StyleSheet.create({
     borderColor: colors.blackPurple,
     borderBottomWidth: 4,
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-    paddingTop: 60
+    width: '100%'
   },
   tabButton: {
-    backgroundColor: colors.grayBlue,
     alignItems: 'center',
-    paddingHorizontal: 30
+    textAlign: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    width: '50%',
+    flex: 1
   },
   tabButtonActive: {
-    backgroundColor: colors.whiteBlue,
+    backgroundColor: colors.white,
     alignItems: 'center',
-    paddingHorizontal: 30
+    textAlign: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    width: '50%',
+    flex: 1,
+    color: 'black'
+  },
+  tabTextActive: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    color: 'black'
+  },
+  tabText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    color: 'white'
   },
   tabHeading: {
     textAlign: 'center',

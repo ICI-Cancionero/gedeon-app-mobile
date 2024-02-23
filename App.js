@@ -11,12 +11,15 @@ export default function App () {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Cancionero del Reino</Text>
+      </View>
       <View style={styles.tabBarUnderline}>
         <Pressable style={currentTab == 0 ? styles.tabButtonActive : styles.tabButton}  onPress={() => setCurrentTab(0)}>
-          <Text style={styles.buttonText}>Canciones</Text>
+          <Text style={currentTab == 0 ? styles.tabTextActive : styles.tabText} >Canciones</Text>
         </Pressable>
         <Pressable style={currentTab == 1 ? styles.tabButtonActive : styles.tabButton} onPress={() => setCurrentTab(1)}>
-          <Text style={styles.buttonText}>Listas</Text>
+          <Text style={currentTab == 1 ? styles.tabTextActive : styles.tabText}>Listas</Text>
         </Pressable>
       </View>
       <TabView selectedTabIndex={currentTab} >

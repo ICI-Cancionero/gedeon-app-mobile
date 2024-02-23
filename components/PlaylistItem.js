@@ -1,5 +1,4 @@
 import React from 'react';
-// import { ListItem, Body, Button, Text, Content, Card, CardItem, H2, H3 } from 'native-base';
 import { ScrollView, View, Text, Pressable } from 'react-native';
 import { styles } from './Styles';
 
@@ -53,7 +52,7 @@ export default class PlayListItem extends React.Component {
         <View>
           <Text style={styles.title}>{this.props.playlist.name}</Text>
           <Pressable style={styles.button} onPress={this.toggleContent}>
-            <Text style={styles.title}>{displayText}</Text>
+            <Text style={styles.buttonText}>{displayText}</Text>
           </Pressable>
         </View>
         {this.state.displayContent ? this.renderPlaylistContent() : null}
