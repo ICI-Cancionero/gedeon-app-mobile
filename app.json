@@ -31,6 +31,11 @@
       "permissions": [],
       "versionCode": 7
     },
-    "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile"
+    "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile",
+    "extra": {
+      "eas": {
+        "projectId": "808557ec-ae35-4161-9c26-710774c6b350"
+      }
+    }
   }
 }
