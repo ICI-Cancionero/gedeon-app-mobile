@@ -29,7 +29,7 @@
     "android": {
       "package": "com.icisantiago.icicancionero",
       "permissions": [],
-      "versionCode": 7
+      "versionCode": 8
     },
     "githubUrl": "https://github.com/ICI-Santiago/gedeon-app-mobile",
     "extra": {
