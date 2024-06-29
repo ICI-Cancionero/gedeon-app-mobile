@@ -24,10 +24,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.icisantiago.icicancionero"
+      "bundleIdentifier": "com.icisantiago.cancioneroici"
     },
     "android": {
-      "package": "com.icisantiago.icicancionero",
+      "package": "com.icisantiago.cancioneroici",
       "permissions": [],
       "versionCode": 8
     },
