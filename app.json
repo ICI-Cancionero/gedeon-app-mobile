@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Cancionero ICI",
+    "name": "com.icisantiago.cancioneroici",
     "description": "Esta aplicación contiene el cancionero de la Iglesia ICI Santiago",
     "slug": "ici-cancionero",
     "privacy": "public",
@@ -24,10 +24,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.cancionero.icisantiago"
+      "bundleIdentifier": "com.icisantiago.cancioneroici"
     },
     "android": {
-      "package": "com.cancionero.icisantiago",
+      "package": "com.icisantiago.cancioneroici",
       "permissions": [],
       "versionCode": 9
     },
